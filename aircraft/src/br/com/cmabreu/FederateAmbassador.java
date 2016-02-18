@@ -21,6 +21,15 @@ public class FederateAmbassador extends NullFederateAmbassador {
 	}
 	
 	@Override
+	public void attributeOwnershipAcquisitionNotification(
+			ObjectInstanceHandle theObject,
+			AttributeHandleSet securedAttributes, byte[] userSuppliedTag)
+			throws FederateInternalError {
+		
+		federate.attributeOwnershipAcquisitionNotification( theObject, securedAttributes );
+	}
+	
+	@Override
 	public void provideAttributeValueUpdate(ObjectInstanceHandle theObject,
 			AttributeHandleSet theAttributes, byte[] userSuppliedTag)
 			throws FederateInternalError {
@@ -31,6 +40,15 @@ public class FederateAmbassador extends NullFederateAmbassador {
 		
 	}
 	
+	@Override
+	public void requestAttributeOwnershipRelease(
+			ObjectInstanceHandle theObject,
+			AttributeHandleSet candidateAttributes, byte[] userSuppliedTag)
+			throws FederateInternalError {
+		
+		federate.attributeOwnershipDivestitureIfWanted(theObject, candidateAttributes, userSuppliedTag );
+		
+	}
 	
 	@Override
 	public void discoverObjectInstance( ObjectInstanceHandle theObject,

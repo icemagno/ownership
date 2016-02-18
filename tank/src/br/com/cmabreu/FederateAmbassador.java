@@ -24,6 +24,16 @@ public class FederateAmbassador extends NullFederateAmbassador {
 
 	
 	@Override
+	public void attributeOwnershipAcquisitionNotification(
+			ObjectInstanceHandle theObject,
+			AttributeHandleSet securedAttributes, byte[] userSuppliedTag)
+			throws FederateInternalError {
+		
+		federate.attributeOwnershipAcquisitionNotification( theObject, securedAttributes );
+		
+	}
+	
+	@Override
 	public void requestAttributeOwnershipRelease(
 			ObjectInstanceHandle theObject,
 			AttributeHandleSet candidateAttributes, byte[] userSuppliedTag)

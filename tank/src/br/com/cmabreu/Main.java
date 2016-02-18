@@ -15,7 +15,6 @@ package br.com.cmabreu;
  */
 
 
-import hla.rti1516e.AttributeHandle;
 import hla.rti1516e.AttributeHandleSet;
 import hla.rti1516e.CallbackModel;
 import hla.rti1516e.ObjectInstanceHandle;
@@ -159,19 +158,38 @@ public class Main implements IKeyReaderObserver {
 		exitFromFederation();
 	}
 	
+	public void attributeOwnershipAcquisitionNotification( ObjectInstanceHandle theObject, 
+			AttributeHandleSet securedAttributes ) {
+		
+		log("I now own back the temp attibute from Tank " + theObject + ". Try to update it.");
+		tankClass.updateTempValue();
+	}	
+	
 	public void attributeOwnershipDivestitureIfWanted(
 			ObjectInstanceHandle theObject, AttributeHandleSet candidateAttributes, byte[] userSuppliedTag) {
-		log("Someone requested ownership of my attributes object (" + theObject + ")" );
-		for ( AttributeHandle ah : candidateAttributes ) {
-			log(" Attibute " + ah );
-		}
+		log("Someone requested ownership of my Tank " + theObject );
+		log("Testing ownership of all Tanks...");
+		tankClass.updateTempValue();
+		log("Giving ownership...");
 		try {
 			rtiamb.attributeOwnershipDivestitureIfWanted(theObject, candidateAttributes);
 			log("Done! It is not my problem now.");
+			log("Testing ownership again...");
+			tankClass.updateTempValue();
+
+			try {
+				Thread.sleep(800);
+			} catch ( Exception e ) {
+				//
+			}
+			
+			log("I've changed my mind...");
+			TankObject to = tankClass.getTank( theObject );
+			if ( to != null ) tankClass.acquireAttribute( to );			
+			
 		} catch ( Exception e ) {
 			log("Cannot accept attribute release: " + e.getMessage() );
 		}
-		
 	}
 	
 	// Exit from Federation and try to destroy it.

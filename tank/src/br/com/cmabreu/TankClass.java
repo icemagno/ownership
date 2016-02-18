@@ -12,6 +12,7 @@ import hla.rti1516e.exceptions.RTIexception;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TankClass {
 	// The RTI Ambassador - So we can talk to the RTI from here.
@@ -85,7 +86,38 @@ public class TankClass {
 		}
 		return null;
 	}
-
+	
+	public void acquireAttribute( TankObject to ) throws Exception {
+		log("Requested TempAttribute from Tank " + to.getName() + " (" + to.getHandle() + ")" );
+		AttributeHandleSet ahs = rtiamb.getAttributeHandleSetFactory().create();
+		ahs.add( tempAttributeHandle );
+		rtiamb.attributeOwnershipAcquisition( to.getHandle(), ahs, "Attribute request".getBytes() );
+	}	
+	
+	public TankObject getTank( ObjectInstanceHandle theObject ) {
+		for ( TankObject tank : instances ) {
+			if( tank.isMe( theObject ) ) {
+				return tank;
+			}
+		}
+		return null;
+	}
+	
+	public void updateTempValue() {
+		for ( TankObject tank : instances  ) {
+			tank.update();
+			try {
+				String newValue = UUID.randomUUID().toString().substring(0,5).toUpperCase();
+				log("Try to update attribute from object " + tank.getHandle() );
+				AttributeHandleValueMap attributes = rtiamb.getAttributeHandleValueMapFactory().create(1);
+				attributes.put( tempAttributeHandle, encoder.createHLAunicodeString( newValue ).toByteArray() );			
+				rtiamb.updateAttributeValues( tank.getHandle(), attributes, null );
+				log("Updated.");
+			} catch ( Exception e ) {
+				log("It is not mine.");
+			}
+		}
+	}	
 
 	public void updatePosition() throws Exception {
 		for ( TankObject tank : instances  ) {

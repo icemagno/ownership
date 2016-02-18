@@ -15,7 +15,9 @@ package br.com.cmabreu;
  */
 
 
+import hla.rti1516e.AttributeHandleSet;
 import hla.rti1516e.CallbackModel;
+import hla.rti1516e.ObjectInstanceHandle;
 import hla.rti1516e.RTIambassador;
 import hla.rti1516e.ResignAction;
 import hla.rti1516e.RtiFactoryFactory;
@@ -37,6 +39,9 @@ public class Main implements IKeyReaderObserver {
 
 	private AircraftClass aircraftClass;
 	private TankClass tankClass;
+	
+	private static final int NUM_ITERATIONS = 10;
+	private int iteration = 0;	
 
 	private void log( String message ) 	{
 		System.out.println( "> " + message );
@@ -97,17 +102,49 @@ public class Main implements IKeyReaderObserver {
 		log( "Joined Federation as " + federateName );
 	}
 	
+	public void attributeOwnershipAcquisitionNotification( ObjectInstanceHandle theObject, 
+			AttributeHandleSet securedAttributes ) {
+		log("I now own the temp attibute from Tank " + theObject + ". Try to update it.");
+		tankClass.updateTempValue();
+	}
+	
+	public void attributeOwnershipDivestitureIfWanted(
+			ObjectInstanceHandle theObject, AttributeHandleSet candidateAttributes, byte[] userSuppliedTag) {
+		iteration++;
+		log("The Tank Federate wants its attribute back. Tank " + theObject );
+		log("Testing ownership of all Tanks...");
+		tankClass.updateTempValue();
+		log("Giving ownership...");
+		try {
+			rtiamb.attributeOwnershipDivestitureIfWanted(theObject, candidateAttributes);
+			log("Done! It is not my problem now.");
+			log("Testing ownership again...");
+			tankClass.updateTempValue();
+			
+			try {
+				Thread.sleep(800);
+			} catch ( Exception e ) {
+				//
+			}
+			
+			if ( iteration < NUM_ITERATIONS ) {
+				log("================== ITERATION " + iteration  + "==================");
+				log("But I WANT it back!!");
+				TankObject to = tankClass.getTank( theObject );
+				if ( to != null ) tankClass.acquireAttribute( to );
+			}
+			
+		} catch ( Exception e ) {
+			log("Cannot accept attribute release: " + e.getMessage() );
+		}
+	}
+	
+	
 	@Override
 	public void notify( String key ) {
 		if ( key.equals("n") ) {
 			createAircraft();
 		}
-		
-		if ( key.equals("u") ) {
-			tankClass.updateTempValue();
-		}
-		
-		
 		
 		if ( key.equals("a") ) {
 			if ( tankClass.getTanks().size() == 0 ) {
@@ -115,9 +152,14 @@ public class Main implements IKeyReaderObserver {
 				return;
 			}
 			try {
+				log("Starting ping-pong attribute test...");
+				tankClass.publish();				
+				log("================== ITERATION " + iteration  + "==================");
+				log("Will try to update temp attribute for all Tanks");
+				// Just to be sure we have no ownership.
+				tankClass.updateTempValue();
 				TankObject to = tankClass.getTanks().get(0);
 				tankClass.acquireAttribute( to );
-				log("Requested TempAttribute from Tank " + to.getName() );
 			} catch ( Exception e ) {
 				e.printStackTrace();
 			}
@@ -165,17 +207,12 @@ public class Main implements IKeyReaderObserver {
 		// Publish and subscribe
 		publishAndSubscribe();
 		
-		// Update all attributes for the first time
-		// You can push it all immediately or use provideAttributeValueUpdate() 
-		// and requestAttributeValueUpdate().   
-		// aircraftClass.updateAttributeValues();
-		
+	
 		System.out.println("====== AIRCRAFT FEDERATE ======");
 		System.out.println("Type:");
 		System.out.println("");
 		System.out.println(" n + ENTER : New aircraft");
-		System.out.println(" u + ENTER : Try to update Temp attribute owned by Tanks");
-		System.out.println(" a + ENTER : Acquire Temp attribute from Tank");
+		System.out.println(" a + ENTER : Start ping-pong attribute test");
 		System.out.println(" q + ENTER : Quit");
 		System.out.println("");
 		KeyReader kr = new KeyReader( this, "q" );
@@ -204,9 +241,13 @@ public class Main implements IKeyReaderObserver {
 	// and other Federates attributes
 	private void publishAndSubscribe() throws Exception	{
 		
+		// Publish my own attributes
 		aircraftClass.publish();
 		log( "Published" );
+		
+		// Subscribe to the Tank attributes
 		tankClass.subscribe();
+
 		log( "Subscribed to Tanks" );
 		
 	}

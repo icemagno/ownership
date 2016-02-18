@@ -1,0 +1,160 @@
+> Creating RTIambassador.
+> Connecting...
+> Creating Federation BasicFederation
+
+-------------------------------------------------------------------
+GMS: address=HAN-31965, cluster=BasicFederation, physical address=10.5.114.217:60157
+-------------------------------------------------------------------
+ERROR [main] portico.lrc.jgroups: FAILURE createFederation: already exists, name=BasicFederation
+> Didn't create federation, it already existed.
+> Joined Federation as TankFederateD8A65
+> Published
+====== TANK FEDERATE ======
+Type:
+
+ n + ENTER : New tank
+ q + ENTER : Quit
+
+n
+> Tank CD7CE created.
+> Update attribute request for object 2097153
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> Someone requested ownership of my Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> I've changed my mind...
+> Requested TempAttribute from Tank CD7CE (2097153)
+> I now own back the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.

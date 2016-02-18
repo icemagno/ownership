@@ -10,6 +10,7 @@ import hla.rti1516e.exceptions.RTIexception;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TankClass {
 	// The RTI Ambassador - So we can talk to the RTI from here.
@@ -31,6 +32,7 @@ public class TankClass {
 	private AttributeHandle tempAttributeHandle;
 
 	
+	
 	// Hold all our registered attributes  
 	private AttributeHandleSet attributes;
 
@@ -43,7 +45,7 @@ public class TankClass {
 	}
 	
 	public void acquireAttribute( TankObject to ) throws Exception {
-		publish();
+		log("Requested TempAttribute from Tank " + to.getName() + " (" + to.getHandle() + ")" );
 		AttributeHandleSet ahs = rtiamb.getAttributeHandleSetFactory().create();
 		ahs.add( tempAttributeHandle );
 		rtiamb.attributeOwnershipAcquisition( to.getHandle(), ahs, "Attribute request".getBytes() );
@@ -75,15 +77,21 @@ public class TankClass {
 
 		return coreObjectHandle;
 	}
+
 	
-	// When the Tank Federate sends the updates of its attributes, we must search
-	// in our list of discovered Tanks to see if this specific Tank is in there.
-	// If so, update its attributes. Do this only if you are NOT the Tank owner ( since you
-	// haven't subscribed to your own attribute changes! )
+	public TankObject getTank( ObjectInstanceHandle theObject ) {
+		for ( TankObject tank : instances ) {
+			if( tank.isMe( theObject ) ) {
+				return tank;
+			}
+		}
+		return null;
+	}
+	
 	public TankObject update( AttributeHandleValueMap theAttributes, ObjectInstanceHandle theObject ) throws Exception {
 		// Find the Tank instance
 		for ( TankObject tank : instances ) {
-			if( tank.getHandle().equals( theObject) ) {
+			if( tank.isMe( theObject) ) {
 				// Update its attributes.
 				for( AttributeHandle attributeHandle : theAttributes.keySet() )	{
 					// Is the attribute the Unit's Model?
@@ -97,7 +105,7 @@ public class TankClass {
 						tank.setImageName( encoder.toString( theAttributes.get(attributeHandle) ) );
 					}
 					if( attributeHandle.equals( tempAttributeHandle) ) {
-						log("Tank sent this temp value: " + encoder.toString( theAttributes.get(attributeHandle) ) );
+						log("Tank "+tank.getHandle()+" sent this temp value: " + encoder.toString( theAttributes.get(attributeHandle) ) );
 					}
 					if( attributeHandle.equals( unitTypeHandle ) ) {
 						tank.setUnitType( encoder.toInteger32( theAttributes.get(attributeHandle) ) );
@@ -117,10 +125,11 @@ public class TankClass {
 		for ( TankObject tank : instances  ) {
 			tank.update();
 			try {
+				String newValue = UUID.randomUUID().toString().substring(0,5).toUpperCase();
 				log("Try to update attribute from object " + tank.getHandle() );
 				AttributeHandleValueMap attributes = rtiamb.getAttributeHandleValueMapFactory().create(1);
-				attributes.put( tempAttributeHandle, encoder.createHLAunicodeString("New attribute value").toByteArray() );			
-				rtiamb.updateAttributeValues( tank.getHandle(), attributes, "Tank Position".getBytes() );
+				attributes.put( tempAttributeHandle, encoder.createHLAunicodeString( newValue ).toByteArray() );			
+				rtiamb.updateAttributeValues( tank.getHandle(), attributes, null );
 				log("Updated.");
 			} catch ( Exception e ) {
 				log("It is not mine.");
@@ -191,9 +200,11 @@ public class TankClass {
 	}
 
 	public void publish() throws RTIexception {
+		log("Publishing Tank temp atribute");
 		AttributeHandleSet tempAttributes = rtiamb.getAttributeHandleSetFactory().create();
 		tempAttributes.add( tempAttributeHandle );
 		rtiamb.publishObjectClassAttributes( tankHandle, tempAttributes );		
+		log("Done.");
 	}
 	
 }

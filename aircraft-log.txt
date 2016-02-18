@@ -1,0 +1,196 @@
+> Creating RTIambassador.
+> Connecting...
+> Creating Federation BasicFederation
+
+-------------------------------------------------------------------
+GMS: address=HAN-17599, cluster=BasicFederation, physical address=10.5.114.217:60156
+-------------------------------------------------------------------
+> Created Federation.
+> Joined Federation as AircraftFederate30F82
+> Published
+> Subscribed to Tanks
+====== AIRCRAFT FEDERATE ======
+Type:
+
+ n + ENTER : New aircraft
+ a + ENTER : Start ping-pong attribute test
+ q + ENTER : Quit
+
+> New Tank discovered
+> Tank 2097153 sent this temp value: This is a Temp value
+a
+> Starting ping-pong attribute test...
+> Publishing Tank temp atribute
+> Done.
+> ================== ITERATION 0==================
+> Will try to update temp attribute for all Tanks
+> Try to update attribute from object 2097153
+> It is not mine.
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 4713C
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 57605
+> ================== ITERATION 1==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: A1DBD
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 9D77F
+> ================== ITERATION 2==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 4489B
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 09F5F
+> ================== ITERATION 3==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 51D53
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 02826
+> ================== ITERATION 4==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 9898A
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: B3DA3
+> ================== ITERATION 5==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 982D3
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 642DB
+> ================== ITERATION 6==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 5016E
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: A9601
+> ================== ITERATION 7==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: F34EC
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: E26B9
+> ================== ITERATION 8==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: B2EAE
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: 4E559
+> ================== ITERATION 9==================
+> But I WANT it back!!
+> Requested TempAttribute from Tank CD7CE (2097153)
+> Tank 2097153 sent this temp value: 1BF6F
+> I now own the temp attibute from Tank 2097153. Try to update it.
+> Try to update attribute from object 2097153
+> Updated.
+> The Tank Federate wants its attribute back. Tank 2097153
+> Testing ownership of all Tanks...
+> Try to update attribute from object 2097153
+> Updated.
+> Giving ownership...
+> Done! It is not my problem now.
+> Testing ownership again...
+> Try to update attribute from object 2097153
+> It is not mine.
+> Tank 2097153 sent this temp value: B50D3
