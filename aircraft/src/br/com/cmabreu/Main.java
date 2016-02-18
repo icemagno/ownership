@@ -111,6 +111,7 @@ public class Main implements IKeyReaderObserver {
 	public void attributeOwnershipDivestitureIfWanted(
 			ObjectInstanceHandle theObject, AttributeHandleSet candidateAttributes, byte[] userSuppliedTag) {
 		iteration++;
+		log("================== FALCON ONE ZERO ONE==============");
 		log("The Tank Federate wants its attribute back. Tank " + theObject );
 		log("Testing ownership of all Tanks...");
 		tankClass.updateTempValue();
