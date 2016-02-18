@@ -91,6 +91,7 @@ public class TankClass {
 		log("Requested TempAttribute from Tank " + to.getName() + " (" + to.getHandle() + ")" );
 		AttributeHandleSet ahs = rtiamb.getAttributeHandleSetFactory().create();
 		ahs.add( tempAttributeHandle );
+		
 		rtiamb.attributeOwnershipAcquisition( to.getHandle(), ahs, "Attribute request".getBytes() );
 	}	
 	
