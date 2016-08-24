@@ -1,2 +1,2 @@
 # ownership
-HLA ownership tests
+HLA ownership management tests
